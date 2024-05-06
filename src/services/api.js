@@ -31,3 +31,13 @@ export const fetchPastEvents = async () => {
     throw error;
   }
 };
+
+export const createEvent = async (eventData) => {
+  try {
+    const response = await axios.post(`${baseURL}`, eventData);
+    return response.data;
+  } catch (error) {
+    console.error('Error creating event:', error);
+    throw error;
+  }
+};

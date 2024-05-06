@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import axios from 'axios';
+import { createEvent } from '@/services/api';
 
 const router = useRouter();
 const event = ref({
@@ -17,12 +17,12 @@ const goBack = () => {
 
 const submitForm = async () => {
   try {
-    const response = await axios.post('http://localhost:8080/api/events', event.value);
-    console.log('Event Created:', response.data);
+    const response = await createEvent(event.value); // Use the imported function
+    console.log('Event Created:', response);
     router.push('/'); // Redirect to home after submit
   } catch (error) {
-    console.error('Failed to create event:', error.response.data);
-    alert('Error: ' + error.response.data.message);
+    console.error('Failed to create event:', error.message);
+    alert('Error: ' + error.message);
   }
 };
 </script>
