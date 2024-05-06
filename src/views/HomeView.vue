@@ -25,7 +25,7 @@ import PastEvents from '@/components/PastEvents.vue'
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   row-gap: 20px;
-  column-gap: 0px;
+  column-gap: 20px;
   max-width: 1200px;
   margin: auto;
 }
