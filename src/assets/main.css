@@ -1,8 +1,62 @@
-body {
+body, html {
   margin: 0;
-  font-family: Open Sans, Arial, sans-serif;
+  padding: 0;
+  background-color: #f4eff2;
+  font-family: "Open Sans", sans-serif;
 }
 
-a {
-  color: inherit;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav a {
+  text-decoration: none;
+  color: #005aa1;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-family: "Open Sans", sans-serif;
+}
+
+nav a:hover, nav a.active {
+  background-color: #003660;
+  color: white;
+}
+
+.router-link-active {
+  background-color: #005aa1;
+  color: #e0e0e0;
+  font-weight: bold;
+}
+
+footer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #373737;
+  display: flex; /* Ensure it's using flex for layout */
+  flex-wrap: wrap; /* Allow wrapping if needed */
+  padding: 20px;
+  color: #e0e0e0;
+  font-family: "Open Sans", sans-serif;
+  justify-content: space-between; /* Distribute space between columns */
+}
+
+footer .footer-column {
+  flex: 1 1 200px; /* Flex grow, flex shrink, and base width */
+  margin: 0 10px; /* Adjust margins as needed */
+  min-width: 250px; /* Minimum width to prevent too much compression */
 }

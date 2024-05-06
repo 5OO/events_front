@@ -16,46 +16,39 @@ import { RouterLink, RouterView } from 'vue-router'
     <RouterView />
 
     <footer>
-      <!-- Add your footer content here -->
-      © 2024 Nullam Events. All rights reserved.
+      <div class="footer-column">
+        <h3>Heading 1</h3>
+        <p>Row 1</p>
+        <p>Row 2</p>
+        <p>Row 3</p>
+        <p>Row 4</p>
+      </div>
+      <div class="footer-column">
+        <h3>Heading 2</h3>
+        <p>Row 1</p>
+        <p>Row 2</p>
+        <p>Row 3</p>
+        <p>Row 4</p>
+      </div>
+      <div class="footer-column">
+        <h3>Contacts</h3>
+        <p class="bold">Contact 1</p>
+        <p>Detail 1</p>
+        <p>Detail 2</p>
+        <p>Detail 3</p>
+      </div>
+      <div class="footer-column">
+        <p></p>
+        <p class="bold">Contact 2</p>
+        <p>Detail 1</p>
+        <p>Detail 2</p>
+        <p>Detail 3</p>
+      </div>
     </footer>
+
   </div>
 </template>
 
 <style scoped>
 
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-nav {
-  display: flex;
-  gap: 16px; /* Adjust the gap between links as necessary */
-}
-
-nav a {
-  text-decoration: none;
-  color: #333; /* Adjust color as needed */
-  padding: 10px;
-  border-radius: 5px;
-}
-
-nav a:hover {
-  background-color: #f0f0f0; /* Adjust hover background color as needed */
-}
-
-footer {
-  margin-top: auto;
-  padding: 20px;
-  text-align: center;
-}
 </style>
