@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import { fetchFutureEvents, deleteEvent } from '../services/api.js';
+import { fetchPastEvents, deleteEvent } from '../services/api.js';
 
 const events = ref([]);
 const router = useRouter();
@@ -9,22 +9,13 @@ console.log(router);
 
 const getEvents = async () => {
   try {
-    events.value = await fetchFutureEvents();
+    events.value = await fetchPastEvents();
   } catch (error) {
     console.error('Failed to fetch events:', error);
     alert('Failed to fetch events');
   }
 };
 
-const removeEvent = async (eventId) => {
-  try {
-    await deleteEvent(eventId);
-    await getEvents(); // Refresh the list after deletion
-  } catch (error) {
-    console.error('Failed to delete event:', error);
-    alert('Failed to delete event');
-  }
-};
 
 const addParticipants = (eventId) => {
   router.push(`/events/${eventId}/participants`);
@@ -37,16 +28,13 @@ const formatDate = (dateString) => {
   });
 };
 
-const goToAddEvent = () => {
-  router.push('/add-event');
-};
 
 onMounted(getEvents);
 </script>
 
 <template>
   <div>
-    <div class="events-header">Future Events</div>
+    <div class="events-header">Past Events</div>
     <ol class="events-container">
       <li v-for="(event, index) in events" :key="event.eventId" class="event-item">
         <span class="event-name">{{ index + 1 }}. {{ event.eventName }}</span>
@@ -54,12 +42,8 @@ onMounted(getEvents);
         <span class="event-actions-add">
           <button @click="addParticipants(event.eventId)">Participants</button>
         </span>
-        <span class="event-actions">
-          <button @click="removeEvent(event.eventId)">X</button>
-        </span>
       </li>
     </ol>
-    <button @click="goToAddEvent" class="add-event-button">Add Event</button>
   </div>
 </template>
 
@@ -100,19 +84,6 @@ onMounted(getEvents);
 
 .event-name, .event-date, .event-actions-add, .event-actions {
   padding: 0 10px; /* Adds padding to each grid item */
-}
-
-.add-event-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #ffffff;
-  background-color: #005aa1;
-  border: none;
-  cursor: pointer;
-}
-.add-event-button:hover {
-  background-color: #003870;
 }
 
 </style>

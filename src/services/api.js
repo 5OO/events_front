@@ -21,3 +21,13 @@ export const deleteEvent = async (eventId) => {
     throw error;
   }
 };
+
+export const fetchPastEvents = async () => {
+  try {
+    const response = await axios.get(`${baseURL}/past`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching future events:', error);
+    throw error;
+  }
+};
