@@ -1,9 +1,9 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import FutureEvents from '../components/FutureEvents.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <FutureEvents />
   </main>
 </template>
