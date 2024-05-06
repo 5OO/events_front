@@ -8,7 +8,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <img alt="Nullam logo" class="logo" src="@/assets/logo-left.svg"  />
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/add-event">Add Event</RouterLink>
       </nav>
       <img alt="Small logo" class="logo" src="@/assets/logo-symbol-right-hd.svg" width="50" height="50" style="padding-top: 10px" />
     </header>
