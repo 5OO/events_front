@@ -25,7 +25,7 @@ const removeEvent = async (eventId) => {
   }
 };
 
-const addParticipants = (eventId) => {
+const viewParticipants = (eventId) => {
   router.push(`/events/${eventId}/participants`);
 };
 
@@ -52,7 +52,7 @@ onMounted(getEvents);
         <span class="event-date">{{ formatDate(event.eventDate) }}</span>
         <span class="event-participants">{{ event.totalParticipants }} </span>
         <span class="event-actions-add">
-          <button @click="addParticipants(event.eventId)">Participants</button>
+          <button @click="viewParticipants(event.eventId)">Participants</button>
         </span>
         <span class="event-actions">
           <button @click="removeEvent(event.eventId)">X</button>

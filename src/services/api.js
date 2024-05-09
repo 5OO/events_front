@@ -41,3 +41,74 @@ export const createEvent = async (eventData) => {
     throw error;
   }
 };
+
+export const getEventWithAggregatedParticipants = async (eventId) => {
+  try {
+    const response = await axios.get(`http://localhost:8080/api/events/${eventId}/aggregated-participants`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching aggregated participants:', error);
+    throw error;
+  }
+};
+
+export const getIndividualByIdAndEventId = async (participantId, eventId) => {
+  try {
+    const response = await axios.get(`http://localhost:8080/api/individuals/${participantId}/event/${eventId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching individual:', error);
+    throw error;
+  }
+};
+
+export const getCompanyByIdAndEventId = async (participantId, eventId) => {
+  try {
+    const response = await axios.get(`http://localhost:8080/api/companies/${participantId}/event/${eventId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching company:', error);
+    throw error;
+  }
+};
+
+export const updateIndividual = async (participantId, individual) => {
+  try {
+    const response = await axios.put(`http://localhost:8080/api/individuals/${participantId}`, individual);
+    return response.data;
+  } catch (error) {
+    console.error('Error updating individual:', error);
+    throw error;
+  }
+};
+
+export const updateCompany = async (participantId, company) => {
+  try {
+    const response = await axios.put(`http://localhost:8080/api/companies/${participantId}`, company);
+    return response.data;
+  } catch (error) {
+    console.error('Error updating company:', error);
+    throw error;
+  }
+};
+
+
+export const deleteIndividual = async (participantId) => {
+  try {
+    const response = await axios.delete(`${baseURL}/individuals/${participantId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting individual:', error);
+    throw error;
+  }
+};
+
+export const deleteCompany = async (participantId) => {
+  try {
+    const response = await axios.delete(`${baseURL}/companies/${participantId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting company:', error);
+    throw error;
+  }
+};
