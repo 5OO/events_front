@@ -30,7 +30,7 @@ const updateCompanyDetails = async () => {
   try {
     await updateCompany(company.value.participantId, company.value);
     alert('Company details updated successfully');
-    router.push(`/participants/event/${route.params.eventId}`);
+    router.push(`/events/${route.params.eventId}/participants`);
   } catch (error) {
     console.error('Error updating company details:', error);
     alert('Failed to update company details');
@@ -71,8 +71,8 @@ onMounted(async () => {
         <textarea id="additionalInfo" v-model="company.additionalInfo"></textarea>
       </div>
       <div class="form-actions">
+        <button type="button" class="back-btn" @click="router.push(`/events/${route.params.eventId}/participants`)">Back</button>
         <button type="submit" class="update-btn">Update</button>
-        <button type="button" @click="router.push(`/events/${route.params.eventId}/participants`)">Back</button>
       </div>
     </form>
   </div>
@@ -83,21 +83,23 @@ h1 {
   margin-bottom: 20px;
   color: #005aa1;
 }
-
 .form-group {
+  display: flex;
+  align-items: center; /* Vertically center aligns the label and input */
+  gap: 10px;
   margin-bottom: 20px;
 }
 
 label {
-  display: block;
-  margin-bottom: 5px;
+  width: 200px; /* Adjust the width as necessary */
+  font-weight: bold;
 }
 
 input[type="text"],
 input[type="number"],
 textarea,
 select {
-  width: 100%;
+  flex: 2; /* Input will expand to take available width */
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -106,14 +108,31 @@ select {
 .form-actions {
   display: flex;
   gap: 10px;
+  justify-content: flex-start;
 }
 
 .update-btn {
   background-color: #005aa1;
   color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-btn {
+  background-color: #a0a0a0;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .update-btn:hover {
+  opacity: 0.9;
+}
+.back-btn:hover {
   opacity: 0.9;
 }
 </style>
