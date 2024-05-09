@@ -5,7 +5,6 @@ import { fetchFutureEvents, deleteEvent } from '../services/api.js';
 
 const events = ref([]);
 const router = useRouter();
-console.log(router);
 
 const getEvents = async () => {
   try {
@@ -32,7 +31,7 @@ const addParticipants = (eventId) => {
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
-  return date.toLocaleDateString('en-GB', {
+  return date.toLocaleDateString('en-DE', {
     year: 'numeric', month: '2-digit', day: '2-digit'
   });
 };
@@ -50,7 +49,8 @@ onMounted(getEvents);
     <ol class="events-container">
       <li v-for="(event, index) in events" :key="event.eventId" class="event-item">
         <span class="event-name">{{ index + 1 }}. {{ event.eventName }}</span>
-        <span class="event-date">{{ formatDate(event.eventDateTime) }}</span>
+        <span class="event-date">{{ formatDate(event.eventDate) }}</span>
+        <span class="event-participants">{{ event.totalParticipants }} </span>
         <span class="event-actions-add">
           <button @click="addParticipants(event.eventId)">Participants</button>
         </span>
@@ -87,7 +87,7 @@ onMounted(getEvents);
 }
 .event-item {
   display: grid;
-  grid-template-columns:  3fr 2fr 1fr 1fr;
+  grid-template-columns:  3fr 2fr 1fr 1fr 1fr;
   gap: 8px;
   align-items: center;
   padding: 8px 0;
