@@ -5,7 +5,9 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <div class="app-container">
     <header>
+      <RouterLink to="/">
       <img alt="Nullam logo" class="logo" src="@/assets/logo-left.svg"  />
+        </RouterLink>
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/add-event">Add Event</RouterLink>
