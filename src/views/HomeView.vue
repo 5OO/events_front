@@ -5,11 +5,16 @@ import PastEvents from '@/components/PastEvents.vue'
 
 <template>
   <div class="home-grid">
-    <div class="text-box">
-      <p>Upcoming Events: Get a jumpstart on your week! See all your upcoming events and workshops in one place. Click to view details and register.
-        Manage Participants: Stay organized! Easily add, edit, and remove participants from your events. Track attendance and registrations with a few clicks.
-        Seamless Booking: Booking events is a breeze. Our intuitive interface makes it easy to find the perfect event and secure your spot.
-        Connect and Collaborate: Foster a vibrant community. Our platform facilitates interaction and connection between participants before, during, and after events.</p>
+    <div class="text-box p-3 h-100 d-flex flex-column justify-content-center">
+      <p>
+        <strong>Upcoming Events:</strong> Get a jumpstart on your week! See all your upcoming events and workshops in one place. Click to view details and register.
+      </p>
+      <p>
+        <strong>Manage Participants:</strong> Stay organized! Easily add, edit, and remove participants from your events. Track attendance and registrations with a few clicks.
+      </p>
+      <p>
+        <strong>Seamless Booking:</strong> Booking events is a breeze. Our intuitive interface makes it easy to find the perfect event and secure your spot.
+      </p>
     </div>
     <div class="image-box">
       <img src="@/assets/pilt.jpg" alt="This is green forest">
@@ -37,13 +42,14 @@ import PastEvents from '@/components/PastEvents.vue'
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  text-align: justify;
+  overflow: hidden;
 }
 
 .image-box {
   width: 100%;
   height: 319px;
-  overflow: hidden;
+  object-fit: cover;
 }
 
 .image-box img {
@@ -57,3 +63,4 @@ FutureEvents, PastEvents {
 
 
 </style>
+
