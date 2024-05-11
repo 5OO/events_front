@@ -133,8 +133,7 @@ onMounted(async () => {
     <table>
       <thead>
       <tr>
-        <th>#</th>
-        <th>Type</th>
+        <th></th>
         <th>Name</th>
         <th>Code/ID</th>
         <th>Action</th>
@@ -143,12 +142,12 @@ onMounted(async () => {
       <tbody>
       <tr v-for="(participant, index) in participants" :key="participant.participantId">
         <td>{{ index + 1 }}</td>
-        <td>{{ participant.participantType }}</td>
         <td>{{ participant.name }}</td>
         <td>{{ participant.codeOrId }}</td>
         <td>
-          <span @click="viewParticipantDetails(participant)" role="button" tabindex="0">View</span>
-          <span @click="deleteParticipant(participant)" role="button" tabindex="0">Delete</span>
+          <button type="button" class="back-btn" @click="viewParticipantDetails(participant)">View</button>
+          <button type="submit" class="update-btn" @click="deleteParticipant(participant)">Delete</button>
+
         </td>
       </tr>
       </tbody>
@@ -227,11 +226,11 @@ onMounted(async () => {
       </div>
 
       <div class="form-actions">
+        <button type="button" class="back-btn" @click="router.push('/')">Back</button>
         <button type="submit" class="add-btn">Add Participant</button>
       </div>
     </form>
 
-    <button @click="router.push('/')">Back</button>
   </div>
 </template>
 
@@ -297,17 +296,36 @@ select {
   border-radius: 4px;
 }
 
-.form-actions {
-  margin-top: 20px;
-}
 
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+}
 .add-btn {
   background-color: #005aa1;
   color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-btn {
+  background-color: #a0a0a0;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  opacity: 0.7;
 }
 
 .add-btn:hover {
-  opacity: 0.9;
+  opacity: 0.7;
 }
 .participant-type-selection {
   display: flex;
