@@ -143,10 +143,10 @@ onMounted(async () => {
       <table class="table">
         <thead>
         <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Code/ID</th>
-          <th>Action</th>
+          <th class="visually-hidden">#</th>
+          <th class="visually-hidden">Name</th>
+          <th class="visually-hidden">Code/ID</th>
+          <th class="visually-hidden">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -297,10 +297,29 @@ table {
 .image-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* This is the key! */
+  object-fit: cover;
   background-color: #005aa1;
   color: white;
 }
+
+.list-group-item {
+  border: none; /* Removes borders */
+  background-color: transparent; /* Removes background, making it transparent */
+}
+.list-group{
+  max-width: 400px;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
 
 .form-group {
   margin-bottom: 20px;

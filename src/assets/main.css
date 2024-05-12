@@ -27,6 +27,9 @@ footer, header, hgroup, menu, nav, section {
 
 /* Set base font family to Open Sans */
 body {
+    background-color: #eff2f4 !important;
+    margin: 0;
+    padding: 0;
     line-height: 1;
     font-family: 'Open Sans', sans-serif; /* Ensures Open Sans is used globally */
 }
