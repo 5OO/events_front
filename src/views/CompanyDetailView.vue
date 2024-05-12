@@ -44,8 +44,14 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
-    <h1>Company Details</h1>
+    <div class="d-flex align-items-stretch">
+      <h1 class="flex-grow-1 mb-0">Company Details</h1>
+      <div class="image-container">
+        <img src="@/assets/center-img-labeled.jpg" alt="Event">
+      </div>
+    </div>
+  <div class="container">
+
     <form v-if="company" @submit.prevent="updateCompanyDetails">
       <div class="form-group">
         <label for="legalName">Legal Name:</label>
@@ -79,10 +85,29 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-h1 {
-  margin-bottom: 20px;
-  color: #005aa1;
+
+
+.image-container {
+  width: auto;
+  max-width: 100%;
+  overflow: hidden;
 }
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+h1 {
+  color: white;
+  background-color: #005aa1;
+  padding-left: 20px;
+}
+
+.container {
+  padding: 20px;
+  background-color: #ffffff;
+}
+
 .form-group {
   display: flex;
   align-items: center; /* Vertically center aligns the label and input */
