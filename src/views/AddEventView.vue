@@ -29,8 +29,17 @@ const submitForm = async () => {
 
 <template>
   <div class="add-event-container">
-    <h1>Add New Event</h1>
+
+
+    <div class="d-flex align-items-stretch">
+      <h1 class="flex-grow-1 mb-0">Add New Event</h1>
+      <div class="image-container">
+        <img src="@/assets/center-img-labeled.jpg" alt="Event">
+      </div>
+    </div>
+
     <form @submit.prevent="submitForm">
+
       <div class="form-group">
         <label for="eventName">Event Name:</label>
         <input type="text" id="eventName" v-model="event.eventName" required>
@@ -51,6 +60,7 @@ const submitForm = async () => {
         <button type="button" @click="goBack">Back</button>
         <button type="submit" class="submit-btn">Add</button>
       </div>
+
     </form>
   </div>
 </template>
@@ -58,36 +68,76 @@ const submitForm = async () => {
 <style scoped>
 
 .add-event-container {
-  max-width: 600px;
+  max-width: 1200px;
   margin: auto;
   padding: 20px;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 1px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+.image-container {
+  width: auto;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.header {
+  display: flex;
+  align-items: center; /* Aligns the text and image vertically */
+  background-color: #005aa1;
+  color: white;
+  padding: 10px;
+}
+
+h1 {
+  margin: 0;
+  flex-grow: 1; /* Allows the text to take up the remaining space */
+  opacity: 0.8;
+}
+
+img {
+  height: 100%; /* Sets the image height to match the h1 element */
+  width: auto; /* Maintains aspect ratio */
+}
+
+
 .form-group {
+  display: flex;
+  align-items: center; /* This will vertically align the label and input */
+  margin-top: 20px;
   margin-bottom: 20px;
+  max-width: 400px;
 }
 
 label {
-  display: block;
-  margin-bottom: 5px;
+  flex: 1; /* Allocates 1 portion of the available space to the label */
+  margin-right: 10px; /* Adds some space between the label and the input */
 }
 
 input[type="text"],
 input[type="datetime-local"],
 textarea {
-  width: 100%;
+  flex: 3; /* Allocates 3 portions of the available space to the input, making it larger than the label */
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 100%; /* Ensures the input expands to fill the flex item */
 }
 
 .form-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* Aligns buttons to the left */
+  gap: 10px; /* Provides spacing between the buttons */
 }
+
 
 button {
   padding: 10px 20px;
