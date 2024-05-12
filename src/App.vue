@@ -59,12 +59,12 @@ import { RouterLink, RouterView } from 'vue-router'
   background-color: transparent;
 }
 .header {
-  width: 100%; /* full width */
-  max-width: 1200px; /* max width to maintain layout consistency */
-  margin: 0 auto; /* centers the header */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between; /* spaces out logo, nav, and small logo */
-  align-items: center; /* vertically centers the content */
+  justify-content: space-between;
+  align-items: center;
   background-color: #ffffff;
 }
 
@@ -72,10 +72,7 @@ import { RouterLink, RouterView } from 'vue-router'
   display: flex;
   align-items: center;
 }
-.active-link {
-  background-color: #005aa1; /* Active link background color */
-  color: white; /* Active link text color */
-}
+
 .nav-link:active, .nav-link:hover {
   background-color: #005aa1;
   color: white;
@@ -89,9 +86,9 @@ import { RouterLink, RouterView } from 'vue-router'
 }
 
 .footer {
-  width: 100%; /* full width */
-  max-width: 1200px; /* max width to maintain layout consistency */
-  margin: 0 auto; /* centers the header */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer-background {
@@ -106,12 +103,10 @@ import { RouterLink, RouterView } from 'vue-router'
   text-align: left;
 }
 
-
 .footer-column {
   margin-left: 30px;
   margin-bottom: 15px;
-  padding: 10px; /* Adds padding within each column for spacing */
+  padding: 10px;
 }
-
 </style>
 
