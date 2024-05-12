@@ -4,27 +4,44 @@ import PastEvents from '@/components/PastEvents.vue'
 </script>
 
 <template>
+
+  <div class="d-flex align-items-stretch">
+    <div class="text-box flex-grow-1 mb-0">
+      <p>
+        <strong>Upcoming Events:</strong>
+        Get a jumpstart on your week!
+        See all your upcoming events and workshops in one place.
+        Click to view details and register.
+      </p>
+    </div>
+    <div class="image-container">
+      <img src="@/assets/pilt.jpg" alt="Event">
+    </div>
+  </div>
+
   <div class="home-grid">
-    <div class="text-box p-3 h-100 d-flex flex-column justify-content-center">
-      <p>
-        <strong>Upcoming Events:</strong> Get a jumpstart on your week! See all your upcoming events and workshops in one place. Click to view details and register.
-      </p>
-      <p>
-        <strong>Manage Participants:</strong> Stay organized! Easily add, edit, and remove participants from your events. Track attendance and registrations with a few clicks.
-      </p>
-      <p>
-        <strong>Seamless Booking:</strong> Booking events is a breeze. Our intuitive interface makes it easy to find the perfect event and secure your spot.
-      </p>
-    </div>
-    <div class="image-box">
-      <img src="@/assets/pilt.jpg" alt="This is green forest">
-    </div>
     <FutureEvents />
     <PastEvents />
   </div>
 </template>
 
 <style>
+.image-container {
+  max-width: 100%;
+  overflow: hidden;
+}
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-box {
+  max-width: 600px;
+  word-wrap: normal;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .home-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -32,7 +49,7 @@ import PastEvents from '@/components/PastEvents.vue'
   row-gap: 20px;
   column-gap: 20px;
   max-width: 1200px;
-  margin: auto;
+  margin-top: 20px;
 }
 
 .text-box {
