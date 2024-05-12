@@ -103,6 +103,7 @@ select {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  max-width: 400px;
 }
 
 .form-actions {
