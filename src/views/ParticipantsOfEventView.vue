@@ -156,9 +156,8 @@ onMounted(async () => {
             <td>{{ participant.name }}</td>
             <td>{{ participant.codeOrId }}</td>
             <td>
-              <span class="text-dark cursor-pointer" @click="viewParticipantDetails(participant)"
-                    role="button">View</span>
-              <span class="text-dark cursor-pointer" @click="deleteParticipant(participant)" role="button">Delete</span>
+              <button class="text-dark cursor-pointer" @click="viewParticipantDetails(participant)" @keyup.enter="viewParticipantDetails(participant)">View</button>
+              <button class="text-danger cursor-pointer" @click="deleteParticipant(participant)" @keyup.enter="deleteParticipant(participant)">Delete</button>
 
             </td>
           </tr>
@@ -191,7 +190,7 @@ onMounted(async () => {
 
         <form @submit.prevent="addParticipant">
 
-          <div v-if="selectedParticipantType === 'individual'">
+          <div class="radio-button-1" v-if="selectedParticipantType === 'individual'">
             <div class="row form-group">
               <label for="firstName" class="col-sm-2 col-form-label">First Name:</label>
               <div class="col-sm-4">
@@ -227,7 +226,7 @@ onMounted(async () => {
             </div>
           </div>
 
-          <div v-else-if="selectedParticipantType === 'company'">
+          <div class="radio-button-2" v-else-if="selectedParticipantType === 'company'">
             <div class="row form-group">
               <label for="legalName" class="col-sm-2 col-form-label">Legal Name:</label>
               <div class="col-sm-4">
@@ -279,6 +278,7 @@ onMounted(async () => {
 
 
 <style>
+
 .image-container {
   width: auto;
   max-width: 100%;
@@ -299,16 +299,13 @@ h1 {
   color: white;
   background-color: #005aa1;
   padding-left: 20px;
+  padding-right: 20px;
   margin-bottom: 0;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
 }
 
 .component {
   padding-left: 5px;
+  padding-top: 5px;
   padding-bottom: 1px;
   background-color: #ffffff;
 }
@@ -318,53 +315,42 @@ table {
   max-width: 1200px;
   margin: 0 auto;
 }
-
+.list-group {
+  max-width: 400px;
+  margin-top: 0;
+}
 .list-group-item {
   border: none; /* Removes borders */
   background-color: transparent; /* Removes background, making it transparent */
 }
 
-.list-group {
-  max-width: 400px;
-  margin-top: 0;
 
+.cursor-pointer:hover {
+  text-decoration: underline; /* Add underline on hover (optional) */
 }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+.text-danger.cursor-pointer:hover {
+  color: red; /* Turn Delete link red on hover */
+}
+
+.text-dark.cursor-pointer:hover {
+  color: #5a6268; /* Example of a neutral gray hover color for the View link */
+}
+.cursor-pointer{
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 label {
-  display: block;
+  display: inline;
+  margin: 5px;
 }
 
-input[type='text'],
-input[type='number'],
-textarea,
-select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.form-actions {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-start;
-}
 
 .add-btn {
   background-color: #005aa1;
@@ -373,6 +359,8 @@ select {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 .back-btn {
@@ -391,28 +379,5 @@ select {
 .add-btn:hover {
   opacity: 0.7;
 }
-
-.participant-type-selection {
-  display: flex;
-  gap: 20px; /* Adjust spacing between radio buttons as needed */
-  align-items: center;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-  padding: 10px;
-  color: black;
-  text-transform: uppercase;
-}
-
-
-.text-dark.cursor-pointer:hover {
-  color: red; /* Example of a neutral gray hover color for the View link */
-}
-
-.cursor-pointer:hover {
-  text-decoration: underline;
-}
-
 
 </style>
