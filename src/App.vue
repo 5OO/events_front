@@ -9,8 +9,8 @@ import { RouterLink, RouterView } from 'vue-router'
         <img alt="Nullam logo" class="logo" src="@/assets/logo-left.svg" />
       </RouterLink>
       <nav class="navbar">
-        <RouterLink to="/" class="nav-link">Home</RouterLink>
-        <RouterLink to="/add-event" class="nav-link">Add Event</RouterLink>
+        <RouterLink to="/" class="nav-link" exact-active-class="active-link">Home</RouterLink>
+        <RouterLink to="/add-event" class="nav-link" exact-active-class="active-link">Add Event</RouterLink>
       </nav>
       <img alt="Small logo" class="logo" src="@/assets/logo-symbol-right-hd.svg" />
     </header>
@@ -65,13 +65,17 @@ import { RouterLink, RouterView } from 'vue-router'
   display: flex;
   justify-content: space-between; /* spaces out logo, nav, and small logo */
   align-items: center; /* vertically centers the content */
+  background-color: #ffffff;
 }
 
 .navbar {
   display: flex;
   align-items: center;
 }
-
+.active-link {
+  background-color: #005aa1; /* Active link background color */
+  color: white; /* Active link text color */
+}
 .nav-link:active, .nav-link:hover {
   background-color: #005aa1;
   color: white;
@@ -81,6 +85,7 @@ import { RouterLink, RouterView } from 'vue-router'
   text-transform: uppercase;
   padding: 10px;
   margin-left: 10px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .footer {
