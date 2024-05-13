@@ -73,6 +73,11 @@ import { RouterLink, RouterView } from 'vue-router'
   align-items: center;
 }
 
+.active-link {
+  background-color: #005aa1;
+  color: white;
+}
+
 .nav-link:active, .nav-link:hover {
   background-color: #005aa1;
   color: white;
@@ -100,13 +105,10 @@ import { RouterLink, RouterView } from 'vue-router'
 }
 
 .footer-column {
-  text-align: left;
-}
-
-.footer-column {
   margin-left: 30px;
   margin-bottom: 15px;
   padding: 10px;
+  text-align: left;
 }
 </style>
 
