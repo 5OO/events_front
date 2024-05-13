@@ -2,7 +2,10 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { createEvent } from '@/services/api';
+import {useToast} from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-bootstrap.css';
 
+const toast = useToast();
 const router = useRouter();
 const event = ref({
   eventName: '',
@@ -19,6 +22,7 @@ const submitForm = async () => {
   try {
     const response = await createEvent(event.value); // Use the imported function
     console.log('Event Created:', response);
+    toast.success('New event created successfully');
     router.push('/'); // Redirect to home after submit
   } catch (error) {
     console.error('Failed to create event:', error.message);
