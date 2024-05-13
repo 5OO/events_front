@@ -9,7 +9,10 @@ import {
   getEventWithAggregatedParticipants,
   getPaymentMethods
 } from '@/services/api.js'
+import {useToast} from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-bootstrap.css';
 
+const toast = useToast();
 const eventDetails = ref(null)
 const participants = ref([])
 const paymentMethods = ref([])
@@ -44,7 +47,10 @@ const getParticipants = async () => {
     companyForm.value.eventId = response.eventId
   } catch (error) {
     console.error('Error fetching aggregated participants:', error)
-    alert('Failed to fetch participants')
+    toast.error('Failed to fetch participants', {
+      position: 'top',
+      duration: 5000
+    })
   }
 }
 
@@ -53,7 +59,10 @@ const getPaymentMethodsList = async () => {
     paymentMethods.value = await getPaymentMethods()
   } catch (error) {
     console.error('Error fetching payment methods:', error)
-    alert('Failed to fetch payment methods')
+    toast.error('Failed to fetch payment methods', {
+      position: 'top',
+      duration: 5000
+    })
   }
 }
 
@@ -75,7 +84,10 @@ const deleteParticipant = async (participant) => {
     await getParticipants() // Refresh the list after deletion
   } catch (error) {
     console.error('Failed to delete participant:', error)
-    alert('Failed to delete participant')
+    toast.error('Failed to delete participant', {
+      position: 'top',
+      duration: 5000
+    })
   }
 }
 
@@ -90,7 +102,10 @@ const addParticipant = async () => {
     clearForm()
   } catch (error) {
     console.error('Failed to add participant:', error)
-    alert('Failed to add participant')
+    toast.error('Failed to add participant', {
+      position: 'top',
+      duration: 5000
+    })
   }
 }
 

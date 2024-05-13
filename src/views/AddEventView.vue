@@ -26,7 +26,10 @@ const submitForm = async () => {
     router.push('/'); // Redirect to home after submit
   } catch (error) {
     console.error('Failed to create event:', error.message);
-    alert('Error: ' + error.message);
+    toast.error('Error: ' + error.message, {
+      position: 'top',
+      duration: 5000
+    });
   }
 };
 </script>
