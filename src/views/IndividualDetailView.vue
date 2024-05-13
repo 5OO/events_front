@@ -2,7 +2,10 @@
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { getIndividualByIdAndEventId, updateIndividual, getPaymentMethods } from '@/services/api.js';
+import {useToast} from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-bootstrap.css';
 
+const toast = useToast();
 const individual = ref(null);
 const paymentMethods = ref([]);
 const router = useRouter();
@@ -29,7 +32,8 @@ const fetchPaymentMethods = async () => {
 const updateIndividualDetails = async () => {
   try {
     await updateIndividual(individual.value.participantId, individual.value);
-    alert('Individual details updated successfully');
+    toast.success('Individual details updated successfully');
+
     router.push(`/events/${route.params.eventId}/participants`);
   } catch (error) {
     console.error('Error updating individual details:', error);

@@ -2,7 +2,10 @@
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { getCompanyByIdAndEventId, updateCompany, getPaymentMethods } from '@/services/api.js';
+import {useToast} from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-bootstrap.css';
 
+const toast = useToast();
 const company = ref(null);
 const paymentMethods = ref([]);
 const router = useRouter();
@@ -29,7 +32,7 @@ const fetchPaymentMethods = async () => {
 const updateCompanyDetails = async () => {
   try {
     await updateCompany(company.value.participantId, company.value);
-    alert('Company details updated successfully');
+    toast.success('Company details updated successfully');
     router.push(`/events/${route.params.eventId}/participants`);
   } catch (error) {
     console.error('Error updating company details:', error);
