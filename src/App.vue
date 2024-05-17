@@ -57,6 +57,7 @@ import { RouterLink, RouterView } from 'vue-router'
   height: 50px;
   width: auto;
   background-color: transparent;
+  padding-right: 5px;
 }
 .header {
   width: 100%;

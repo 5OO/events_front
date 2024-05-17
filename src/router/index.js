@@ -4,6 +4,8 @@ import AddEventView from '../views/AddEventView.vue';
 import ParticipantsOfEventView from '@/views/ParticipantsOfEventView.vue'
 import IndividualDetailView from '@/views/IndividualDetailView.vue'
 import CompanyDetailView from '@/views/CompanyDetailView.vue'
+import NotFoundPage from '@/views/NotFoundPage.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,6 +33,11 @@ const router = createRouter({
       path: '/participant/company/:participantId/event/:eventId',
       name: 'CompanyDetailView',
       component: CompanyDetailView
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: NotFoundPage
     }
   ]
 })
