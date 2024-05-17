@@ -54,24 +54,25 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style scoped>
 .logo {
-  height: 50px;
   width: auto;
   background-color: transparent;
-  padding-right: 5px;
+  margin: 0 5px;
 }
 .header {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 10px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff;
+  height: 70px;
 }
 
 .navbar {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  height: 100%;
 }
 
 .active-link {
@@ -86,9 +87,12 @@ import { RouterLink, RouterView } from 'vue-router'
 }
 .nav-link {
   text-transform: uppercase;
-  padding: 10px;
+  padding: 0 10px;
   margin-left: 10px;
   transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .footer {
