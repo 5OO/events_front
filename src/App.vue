@@ -17,7 +17,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
     <RouterView />
 
-    <footer class="footer mt-4 pt-4 border-top footer-background">
+    <footer class="footer mt-0 pt-4 border-top footer-background">
       <div class="row">
         <div class="col footer-column">
           <h3>Randomize</h3>

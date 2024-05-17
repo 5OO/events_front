@@ -112,7 +112,7 @@ onMounted(getEvents);
 }
 
 .add-event-button {
-  margin-top: 20px;
+  margin-top: 1px;
   padding: 10px 20px;
   font-size: 16px;
   color: #ffffff;
