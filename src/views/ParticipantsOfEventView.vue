@@ -47,7 +47,7 @@ const getParticipants = async () => {
     companyForm.value.eventId = response.eventId
   } catch (error) {
     console.error('Error fetching aggregated participants:', error)
-    toast.error('Failed to fetch participants', {
+    toast.error(error.message || 'Failed to fetch participants', {
       position: 'top',
       duration: 5000
     })
@@ -59,7 +59,7 @@ const getPaymentMethodsList = async () => {
     paymentMethods.value = await getPaymentMethods()
   } catch (error) {
     console.error('Error fetching payment methods:', error)
-    toast.error('Failed to fetch payment methods', {
+    toast.error(error.message || 'Failed to fetch payment methods', {
       position: 'top',
       duration: 5000
     })
@@ -84,7 +84,7 @@ const deleteParticipant = async (participant) => {
     await getParticipants() // Refresh the list after deletion
   } catch (error) {
     console.error('Failed to delete participant:', error)
-    toast.error('Failed to delete participant', {
+    toast.error(error.message || 'Failed to delete participant', {
       position: 'top',
       duration: 5000
     })
@@ -102,7 +102,7 @@ const addParticipant = async () => {
     clearForm()
   } catch (error) {
     console.error('Failed to add participant:', error)
-    toast.error('Failed to add participant', {
+    toast.error(error.message || 'Failed to add participant', {
       position: 'top',
       duration: 5000
     })
@@ -335,21 +335,21 @@ h1 {
   margin-top: 0;
 }
 .list-group-item {
-  border: none; /* Removes borders */
-  background-color: transparent; /* Removes background, making it transparent */
+  border: none;
+  background-color: transparent;
 }
 
 
 .cursor-pointer:hover {
-  text-decoration: underline; /* Add underline on hover (optional) */
+  text-decoration: underline;
 }
 
 .text-danger.cursor-pointer:hover {
-  color: red; /* Turn Delete link red on hover */
+  color: red;
 }
 
 .text-dark.cursor-pointer:hover {
-  color: #5a6268; /* Example of a neutral gray hover color for the View link */
+  color: #5a6268;
 }
 .cursor-pointer{
   margin-left: 5px;

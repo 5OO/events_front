@@ -2,13 +2,20 @@ import axios from 'axios';
 
 const baseURL = 'http://localhost:8080/api'; // Adjust the base URL as needed
 
+const handleError = (error) => {
+  if (error.response && error.response.data) {
+    throw new Error(error.response.data);
+  } else {
+    throw new Error('An unexpected error occurred');
+  }
+};
+
 export const fetchFutureEvents = async () => {
   try {
     const response = await axios.get(`${baseURL}/events/future`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching future events:', error);
-    throw error;
+    handleError(error);
   }
 };
 
@@ -17,8 +24,7 @@ export const deleteEvent = async (eventId) => {
     const response = await axios.delete(`${baseURL}/events/${eventId}`);
     return response.data;
   } catch (error) {
-    console.error('Error deleting event:', error);
-    throw error;
+    handleError(error);
   }
 };
 
@@ -27,8 +33,7 @@ export const fetchPastEvents = async () => {
     const response = await axios.get(`${baseURL}/events/past`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching future events:', error);
-    throw error;
+    handleError(error);
   }
 };
 
@@ -37,8 +42,7 @@ export const createEvent = async (eventData) => {
     const response = await axios.post(`${baseURL}/events`, eventData);
     return response.data;
   } catch (error) {
-    console.error('Error creating event:', error);
-    throw error;
+    handleError(error);
   }
 };
 
@@ -47,8 +51,7 @@ export const getEventWithAggregatedParticipants = async (eventId) => {
     const response = await axios.get(`http://localhost:8080/api/events/${eventId}/aggregated-participants`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching aggregated participants:', error);
-    throw error;
+    handleError(error);
   }
 };
 
@@ -57,8 +60,7 @@ export const getIndividualByIdAndEventId = async (participantId, eventId) => {
     const response = await axios.get(`http://localhost:8080/api/individuals/${participantId}/event/${eventId}`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching individual:', error);
-    throw error;
+    handleError(error);
   }
 };
 
@@ -67,8 +69,7 @@ export const getCompanyByIdAndEventId = async (participantId, eventId) => {
     const response = await axios.get(`http://localhost:8080/api/companies/${participantId}/event/${eventId}`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching company:', error);
-    throw error;
+    handleError(error);
   }
 };
 
@@ -77,8 +78,7 @@ export const createIndividual = async (individualData) => {
     const response = await axios.post(`${baseURL}/individuals`, individualData);
     return response.data;
   } catch (error) {
-    console.error('Error creating individual:', error);
-    throw error;
+    handleError(error);
   }
 };
 
@@ -87,8 +87,7 @@ export const updateIndividual = async (participantId, individual) => {
     const response = await axios.put(`http://localhost:8080/api/individuals/${participantId}`, individual);
     return response.data;
   } catch (error) {
-    console.error('Error updating individual:', error);
-    throw error;
+    handleError(error);
   }
 };
 
@@ -97,8 +96,7 @@ export const deleteIndividual = async (participantId) => {
     const response = await axios.delete(`${baseURL}/individuals/${participantId}`);
     return response.data;
   } catch (error) {
-    console.error('Error deleting individual:', error);
-    throw error;
+    handleError(error);
   }
 };
 
@@ -107,8 +105,7 @@ export const createCompany = async (companyData) => {
     const response = await axios.post(`${baseURL}/companies`, companyData);
     return response.data;
   } catch (error) {
-    console.error('Error creating company:', error);
-    throw error;
+    handleError(error);
   }
 };
 
@@ -117,8 +114,7 @@ export const updateCompany = async (participantId, company) => {
     const response = await axios.put(`http://localhost:8080/api/companies/${participantId}`, company);
     return response.data;
   } catch (error) {
-    console.error('Error updating company:', error);
-    throw error;
+    handleError(error);
   }
 };
 
@@ -127,8 +123,7 @@ export const deleteCompany = async (participantId) => {
     const response = await axios.delete(`${baseURL}/companies/${participantId}`);
     return response.data;
   } catch (error) {
-    console.error('Error deleting company:', error);
-    throw error;
+    handleError(error);
   }
 };
 
@@ -138,7 +133,6 @@ export const getPaymentMethods = async () => {
     const response = await axios.get(`${baseURL}/config/payment-methods`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching payment methods:', error);
-    throw error;
+    handleError(error);
   }
 };

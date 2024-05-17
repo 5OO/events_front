@@ -16,7 +16,7 @@ const fetchCompany = async () => {
     company.value = await getCompanyByIdAndEventId(route.params.participantId, route.params.eventId);
   } catch (error) {
     console.error('Error fetching company details:', error);
-    toast.error('Failed to fetch company details', {
+    toast.error(error.message || 'Failed to fetch company details', {
       position: 'top',
       duration: 5000
     });
@@ -28,7 +28,7 @@ const fetchPaymentMethods = async () => {
     paymentMethods.value = await getPaymentMethods();
   } catch (error) {
     console.error('Error fetching payment methods:', error);
-    toast.error('Failed to fetch payment methods', {
+    toast.error(error.message || 'Failed to fetch payment methods', {
       position: 'top',
       duration: 5000
     });
@@ -39,10 +39,10 @@ const updateCompanyDetails = async () => {
   try {
     await updateCompany(company.value.participantId, company.value);
     toast.success('Company details updated successfully');
-    router.push(`/events/${route.params.eventId}/participants`);
+    await router.push(`/events/${route.params.eventId}/participants`);
   } catch (error) {
     console.error('Error updating company details:', error);
-    toast.error('Failed to update company details', {
+    toast.error(error.message || 'Failed to update company details', {
       position: 'top',
       duration: 5000
     });
@@ -122,13 +122,13 @@ h1 {
 
 .form-group {
   display: flex;
-  align-items: center; /* Vertically center aligns the label and input */
+  align-items: center;
   gap: 10px;
   margin-bottom: 20px;
 }
 
 label {
-  width: 200px; /* Adjust the width as necessary */
+  width: 200px;
   font-weight: bold;
 }
 
@@ -136,7 +136,7 @@ input[type="text"],
 input[type="number"],
 textarea,
 select {
-  flex: 2; /* Input will expand to take available width */
+  flex: 2;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;

@@ -16,7 +16,7 @@ const fetchIndividual = async () => {
     individual.value = await getIndividualByIdAndEventId(route.params.participantId, route.params.eventId);
   } catch (error) {
     console.error('Error fetching individual details:', error);
-    toast.error('Failed to fetch individual details', {
+    toast.error(error.message || 'Failed to fetch individual details', {
       position: 'top',
       duration: 5000
     });
@@ -28,7 +28,7 @@ const fetchPaymentMethods = async () => {
     paymentMethods.value = await getPaymentMethods();
   } catch (error) {
     console.error('Error fetching payment methods:', error);
-    toast.error('Failed to fetch payment methods', {
+    toast.error(error.message || 'Failed to fetch payment methods', {
       position: 'top',
       duration: 5000
     });
@@ -42,12 +42,12 @@ const updateIndividualDetails = async () => {
       position: 'top',
       duration: 4000
     });
-    router.push(`/events/${route.params.eventId}/participants`);
+    await router.push(`/events/${route.params.eventId}/participants`);
   } catch (error) {
     console.error('Error updating individual details:', error);
-    toast.error('Failed to update individual details', {
+    toast.error(error.message || 'Failed to update individual details', {
       position: 'top',
-      duration: 5000
+      duration: 6000
     });
   }
 };
@@ -129,7 +129,7 @@ h1 {
 
 .form-group {
   display: flex;
-  align-items: center; /* Vertically center aligns the label and input */
+  align-items: center;
   gap: 10px;
   margin-bottom: 20px;
 }
@@ -143,7 +143,7 @@ input[type="text"],
 input[type="number"],
 textarea,
 select {
-  flex: 2; /* Input will expand to take available width */
+  flex: 2;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;

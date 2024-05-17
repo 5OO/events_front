@@ -20,13 +20,15 @@ const goBack = () => {
 
 const submitForm = async () => {
   try {
-    const response = await createEvent(event.value); // Use the imported function
-    console.log('Event Created:', response);
-    toast.success('New event created successfully');
-    router.push('/'); // Redirect to home after submit
+    await createEvent(event.value);
+    toast.success('New event created successfully', {
+      position: 'top',
+      duration: 5000
+    });
+    await router.push('/');
   } catch (error) {
     console.error('Failed to create event:', error.message);
-    toast.error('Error: ' + error.message, {
+    toast.error(error.message || 'Error: ' + error.message, {
       position: 'top',
       duration: 5000
     });
@@ -98,7 +100,7 @@ const submitForm = async () => {
 
 .header {
   display: flex;
-  align-items: center; /* Aligns the text and image vertically */
+  align-items: center;
   background-color: #005aa1;
   color: white;
   padding: 10px;
@@ -106,43 +108,43 @@ const submitForm = async () => {
 
 h1 {
   margin: 0;
-  flex-grow: 1; /* Allows the text to take up the remaining space */
+  flex-grow: 1;
   opacity: 0.8;
 }
 
 img {
-  height: 100%; /* Sets the image height to match the h1 element */
-  width: auto; /* Maintains aspect ratio */
+  height: 100%;
+  width: auto;
 }
 
 
 .form-group {
   display: flex;
-  align-items: center; /* This will vertically align the label and input */
+  align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
   max-width: 400px;
 }
 
 label {
-  flex: 1; /* Allocates 1 portion of the available space to the label */
-  margin-right: 10px; /* Adds some space between the label and the input */
+  flex: 1;
+  margin-right: 10px;
 }
 
 input[type="text"],
 input[type="datetime-local"],
 textarea {
-  flex: 3; /* Allocates 3 portions of the available space to the input, making it larger than the label */
+  flex: 3;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 100%; /* Ensures the input expands to fill the flex item */
+  width: 100%;
 }
 
 .form-actions {
   display: flex;
-  justify-content: flex-start; /* Aligns buttons to the left */
-  gap: 10px; /* Provides spacing between the buttons */
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 

@@ -1,18 +1,23 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import { fetchPastEvents, deleteEvent } from '../services/api.js';
+import { fetchPastEvents } from '../services/api.js';
+import {useToast} from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-bootstrap.css';
 
+const toast = useToast();
 const events = ref([]);
 const router = useRouter();
-console.log(router);
 
 const getEvents = async () => {
   try {
     events.value = await fetchPastEvents();
   } catch (error) {
     console.error('Failed to fetch events:', error);
-    alert('Failed to fetch events');
+    toast.error(error.message ||'Failed to fetch past events', {
+      position: 'top',
+      duration: 5000
+    });
   }
 };
 
@@ -57,17 +62,17 @@ onMounted(getEvents);
   line-height: 45px;
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
-  text-align: center; /* Centers the text if needed */
+  text-align: center;
   display: flex;
-  align-items: center; /* Vertically centers the text */
-  justify-content: center; /* Horizontally centers the text */
+  align-items: center;
+  justify-content: center;
 }
 .events-container {
   width: 580px;
   height: 335px;
   background-color: #ffffff;
   filter: drop-shadow(0px 1px 0px rgba(0,0,0,0.09));
-  overflow-y: auto; /* Allows scrolling if content exceeds 335px height */
+  overflow-y: auto;
 }
 .event-item {
   display: grid;
@@ -83,7 +88,7 @@ onMounted(getEvents);
 }
 
 .event-name, .event-date, .event-actions-add, .event-actions {
-  padding: 0 10px; /* Adds padding to each grid item */
+  padding: 0 10px;
 }
 
 </style>
