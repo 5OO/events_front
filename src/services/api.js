@@ -48,7 +48,7 @@ export const createEvent = async (eventData) => {
 
 export const getEventWithAggregatedParticipants = async (eventId) => {
   try {
-    const response = await axios.get(`http://localhost:8080/api/events/${eventId}/aggregated-participants`);
+    const response = await axios.get(`${baseURL}/events/${eventId}/aggregated-participants`);
     return response.data;
   } catch (error) {
     handleError(error);
@@ -57,7 +57,7 @@ export const getEventWithAggregatedParticipants = async (eventId) => {
 
 export const getIndividualByIdAndEventId = async (participantId, eventId) => {
   try {
-    const response = await axios.get(`http://localhost:8080/api/individuals/${participantId}/event/${eventId}`);
+    const response = await axios.get(`${baseURL}individuals/${participantId}/event/${eventId}`);
     return response.data;
   } catch (error) {
     handleError(error);
@@ -66,7 +66,7 @@ export const getIndividualByIdAndEventId = async (participantId, eventId) => {
 
 export const getCompanyByIdAndEventId = async (participantId, eventId) => {
   try {
-    const response = await axios.get(`http://localhost:8080/api/companies/${participantId}/event/${eventId}`);
+    const response = await axios.get(`${baseURL}/companies/${participantId}/event/${eventId}`);
     return response.data;
   } catch (error) {
     handleError(error);
@@ -84,7 +84,7 @@ export const createIndividual = async (individualData) => {
 
 export const updateIndividual = async (participantId, individual) => {
   try {
-    const response = await axios.put(`http://localhost:8080/api/individuals/${participantId}`, individual);
+    const response = await axios.put(`${baseURL}/individuals/${participantId}`, individual);
     return response.data;
   } catch (error) {
     handleError(error);
@@ -111,7 +111,7 @@ export const createCompany = async (companyData) => {
 
 export const updateCompany = async (participantId, company) => {
   try {
-    const response = await axios.put(`http://localhost:8080/api/companies/${participantId}`, company);
+    const response = await axios.put(`${baseURL}/companies/${participantId}`, company);
     return response.data;
   } catch (error) {
     handleError(error);
