@@ -57,7 +57,7 @@ export const getEventWithAggregatedParticipants = async (eventId) => {
 
 export const getIndividualByIdAndEventId = async (participantId, eventId) => {
   try {
-    const response = await axios.get(`${baseURL}individuals/${participantId}/event/${eventId}`);
+    const response = await axios.get(`${baseURL}/individuals/${participantId}/event/${eventId}`);
     return response.data;
   } catch (error) {
     handleError(error);
