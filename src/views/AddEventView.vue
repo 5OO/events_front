@@ -28,7 +28,7 @@ const submitForm = async () => {
     await router.push('/');
   } catch (error) {
     console.error('Failed to create event:', error.message);
-    toast.error('Failed to create event ' + error.message, {
+    toast.error(error.message || 'Failed to create event ' + error.message, {
       position: 'top',
       duration: 5000
     });

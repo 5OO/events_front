@@ -4,7 +4,13 @@ const baseURL = 'http://localhost:8080/api'; // Adjust the base URL as needed
 
 const handleError = (error) => {
   if (error.response && error.response.data) {
-    throw new Error(error.response.data.message);
+    if (error.response.data.message) {
+      throw new Error(error.response.data.message);
+    }
+    if (typeof error.response.data === 'object') {
+      throw new Error(JSON.stringify(error.response.data));
+    }
+    throw new Error(error.response.data);
   } else {
     throw new Error('An unexpected error occurred');
   }

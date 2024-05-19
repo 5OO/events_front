@@ -45,7 +45,8 @@ const updateIndividualDetails = async () => {
     await router.push(`/events/${route.params.eventId}/participants`);
   } catch (error) {
     console.error('Error updating individual details:', error);
-    toast.error('Failed to update individual details', {
+    toast.error(error.message || 'Failed to update individual details', {
+
       position: 'top',
       duration: 6000
     });

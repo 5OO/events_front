@@ -118,7 +118,7 @@ const addParticipant = async () => {
     clearForm()
   } catch (error) {
     console.error('Failed to add participant:', error)
-    toast.error('Failed to add participant', {
+    toast.error(error.message || 'Failed to add participant', {
       position: 'top',
       duration: 5000
     })
