@@ -47,7 +47,7 @@ const getParticipants = async () => {
     companyForm.value.eventId = response.eventId
   } catch (error) {
     console.error('Error fetching aggregated participants:', error)
-    toast.error(error.message || 'Failed to fetch participants', {
+    toast.error('Failed to fetch aggregated participants', {
       position: 'top',
       duration: 5000
     })
@@ -59,7 +59,7 @@ const getPaymentMethodsList = async () => {
     paymentMethods.value = await getPaymentMethods()
   } catch (error) {
     console.error('Error fetching payment methods:', error)
-    toast.error(error.message || 'Failed to fetch payment methods', {
+    toast.error('Failed to fetch payment methods', {
       position: 'top',
       duration: 5000
     })
@@ -92,7 +92,7 @@ const deleteParticipant = async (participant) => {
     await getParticipants() // Refresh the list after deletion
   } catch (error) {
     console.error('Failed to delete participant:', error)
-    toast.error(error.message || 'Failed to delete participant', {
+    toast.error('Failed to delete participant', {
       position: 'top',
       duration: 5000
     })
@@ -118,7 +118,7 @@ const addParticipant = async () => {
     clearForm()
   } catch (error) {
     console.error('Failed to add participant:', error)
-    toast.error(error.message || 'Failed to add participant', {
+    toast.error('Failed to add participant', {
       position: 'top',
       duration: 5000
     })

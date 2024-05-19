@@ -14,9 +14,9 @@ const getEvents = async () => {
     events.value = await fetchPastEvents();
   } catch (error) {
     console.error('Failed to fetch events:', error);
-    toast.error(error.message ||'Failed to fetch past events', {
+    toast.error('Failed to fetch past events', {
       position: 'top',
-      duration: 5000
+      duration: 6000
     });
   }
 };

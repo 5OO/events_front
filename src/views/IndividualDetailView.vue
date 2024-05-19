@@ -16,7 +16,7 @@ const fetchIndividual = async () => {
     individual.value = await getIndividualByIdAndEventId(route.params.participantId, route.params.eventId);
   } catch (error) {
     console.error('Error fetching individual details:', error);
-    toast.error(error.message || 'Failed to fetch individual details', {
+    toast.error('Failed to fetch individual details', {
       position: 'top',
       duration: 5000
     });
@@ -28,7 +28,7 @@ const fetchPaymentMethods = async () => {
     paymentMethods.value = await getPaymentMethods();
   } catch (error) {
     console.error('Error fetching payment methods:', error);
-    toast.error(error.message || 'Failed to fetch payment methods', {
+    toast.error('Failed to fetch payment methods', {
       position: 'top',
       duration: 5000
     });
@@ -45,7 +45,7 @@ const updateIndividualDetails = async () => {
     await router.push(`/events/${route.params.eventId}/participants`);
   } catch (error) {
     console.error('Error updating individual details:', error);
-    toast.error(error.message || 'Failed to update individual details', {
+    toast.error('Failed to update individual details', {
       position: 'top',
       duration: 6000
     });

@@ -14,7 +14,7 @@ const getEvents = async () => {
     events.value = await fetchFutureEvents();
   } catch (error) {
     console.error('Failed to fetch events:', error);
-    toast.error(error.message ||'Failed to fetch future events', {
+    toast.error('Failed to fetch future events', {
       position: 'top',
       duration: 5000
     });
@@ -27,7 +27,7 @@ const removeEvent = async (eventId) => {
     await getEvents(); // Refresh the list after deletion
   } catch (error) {
     console.error('Failed to delete event:', error);
-    toast.error(error.message ||'Failed to delete event', {
+    toast.error('Failed to delete event', {
       position: 'top',
       duration: 5000
     });

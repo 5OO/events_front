@@ -16,7 +16,7 @@ const fetchCompany = async () => {
     company.value = await getCompanyByIdAndEventId(route.params.participantId, route.params.eventId);
   } catch (error) {
     console.error('Error fetching company details:', error);
-    toast.error(error.message || 'Failed to fetch company details', {
+    toast.error('Failed to fetch company details', {
       position: 'top',
       duration: 6000
     });
@@ -28,7 +28,7 @@ const fetchPaymentMethods = async () => {
     paymentMethods.value = await getPaymentMethods();
   } catch (error) {
     console.error('Error fetching payment methods:', error);
-    toast.error(error.message || 'Failed to fetch payment methods', {
+    toast.error('Failed to fetch payment methods', {
       position: 'top',
       duration: 6000
     });
@@ -45,7 +45,7 @@ const updateCompanyDetails = async () => {
     await router.push(`/events/${route.params.eventId}/participants`);
   } catch (error) {
     console.error('Error updating company details:', error);
-    toast.error(error.message || 'Failed to update company details', {
+    toast.error('Failed to update company details', {
       position: 'top',
       duration: 5000
     });
