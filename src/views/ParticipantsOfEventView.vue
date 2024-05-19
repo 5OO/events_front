@@ -78,8 +78,16 @@ const deleteParticipant = async (participant) => {
   try {
     if (participant.participantType === 'individual') {
       await deleteIndividual(participant.participantId)
+      toast.success('Individual deleted from event participants list', {
+        position: 'top',
+        duration: 5000
+      })
     } else {
       await deleteCompany(participant.participantId)
+      toast.success('Company removed from event participants list', {
+        position: 'top',
+        duration: 5000
+      })
     }
     await getParticipants() // Refresh the list after deletion
   } catch (error) {
@@ -95,8 +103,16 @@ const addParticipant = async () => {
   try {
     if (selectedParticipantType.value === 'individual') {
       await createIndividual(individualForm.value)
+      toast.success('Individual added to participants list', {
+        position: 'top',
+        duration: 5000
+      })
     } else {
       await createCompany(companyForm.value)
+      toast.success('Company added to participants list', {
+        position: 'top',
+        duration: 5000
+      })
     }
     await getParticipants() // Refresh participants list
     clearForm()
