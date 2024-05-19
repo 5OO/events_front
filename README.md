@@ -38,7 +38,7 @@ GitHub Repository: [events_front](https://github.com/5OO/events_front.git)
 * Participant Detail View: Allows for viewing and editing details of individual participants, providing a form populated with existing data that can be updated.
 ![Screenshot 2024-05-12 at 23 16 29](https://github.com/5OO/events_front/assets/27925052/1fd3c005-3924-4d9a-b7ae-1f81c4861733)
 
-#### update for Individuals includes PersonaID validation:
+#### update view for Individuals includes PersonaID validation:
 ![Screenshot 2024-05-19 at 23 17 41](https://github.com/5OO/events_front/assets/27925052/6e1c01e6-bfaa-4259-a29a-db35ea85e6a9)
 
 
