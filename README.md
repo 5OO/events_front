@@ -73,4 +73,11 @@ npm run dev
 ```sh
 npm run build
 ```
+---
+- The frontend should now be accessible on 
+    `http://localhost:5173`.
+- Vue DevTools: Open http://localhost:5173/__devtools__/ as a separate window
+- Make sure you have a running backend from repository hosted on [GitHub](https://github.com/5OO/events_be)
+
+
  
